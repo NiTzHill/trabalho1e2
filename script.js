@@ -50,7 +50,7 @@ class Bd {
 
             personagens.push(personagem)
         }
-        console.log(personagens)
+        return (personagens)
             
     }
 }
