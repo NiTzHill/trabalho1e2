@@ -34,6 +34,25 @@ class Bd {
         localStorage.setItem(id, JSON.stringify(p))
         localStorage.setItem('id', id)
     }
+    recuperartodosregistros() {
+
+        let personagens = Array()
+
+        let id = localStorage.getItem('id')
+
+        for(let i = 1; i <= id; i++){
+            let personagem = JSON.parse(localStorage.getItem(i))
+            console.log(i, personagem)
+            
+            if(personagem === null) {
+                continue
+            }
+
+            personagens.push(personagem)
+        }
+        console.log(personagens)
+            
+    }
 }
 
 let bd = new Bd()
@@ -50,24 +69,31 @@ function cadastrarPersonagem() {
     let nome_personagem = document.getElementById('nome_personagem')
     let nacao = document.getElementById('nacao')
     let casa = document.getElementById('casa')
+
  
 
     
-
     let personagem = new Personagem(
         nome_personagem.value,
-         nacao.value,
-         casa.value,
-         habilidade.value,
-         precisao.value,
-         velocidade.value,
-         armadura.value,
-         recuperacao.value,
+        nacao.value,
+        casa.value,
+        habilidade.value,
+        precisao.value,
+        velocidade.value,
+        armadura.value,
+        recuperacao.value,
          )
 
 
         bd.gravar(personagem)
 
+}
+
+function carregarlistapersonagens() {
+
+    let personagens = Array()
+    personagens = bd.recuperartodosregistros()
+    console.log(personagens)
 }
 
 
