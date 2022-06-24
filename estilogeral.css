@@ -33,6 +33,8 @@ height: 160px;
 
 
 }
+
+
 .borda2 {
 
 
@@ -95,4 +97,9 @@ height: 250px;
 }
 h4 {
     margin: none;
+}
+.esconder { 
+    
+    display: none;
+
 }
